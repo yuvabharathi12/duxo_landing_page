@@ -35,7 +35,7 @@ export default function Header() {
         {/* Mobile menu button */}
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden fixed right-4 sm:right-6 top-3 sm:top-4 z-[100] p-2.5 sm:p-3 rounded-lg hover:bg-primary-100/50 transition-all duration-200 flex items-center justify-center touch-target"
+          className="md:hidden relative z-[60] p-2.5 sm:p-3 rounded-lg hover:bg-primary-100/50 transition-all duration-200 flex items-center justify-center touch-target"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
@@ -88,6 +88,8 @@ export default function Header() {
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-neutral-100">
                 <span className="text-lg font-semibold text-neutral-900">Menu</span>
+                {/* Close button handled by the main hamburger button which is z-60 */}
+                <div className="w-10 h-10"></div> {/* Spacer for the z-60 button */}
               </div>
 
               {/* Menu Items */}
