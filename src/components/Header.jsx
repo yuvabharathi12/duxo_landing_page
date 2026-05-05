@@ -83,8 +83,8 @@ export default function Header() {
           />
 
           {/* Side Menu */}
-          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 md:hidden animate-slide-in-right">
-            <div className="flex flex-col h-full">
+          <div className="fixed top-0 right-0 h-screen w-80 max-w-[85vw] bg-white z-[60] md:hidden animate-slide-in-right shadow-2xl">
+            <div className="flex flex-col h-full bg-white">
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-neutral-100">
                 <span className="text-lg font-semibold text-neutral-900">Menu</span>
@@ -93,7 +93,7 @@ export default function Header() {
               </div>
 
               {/* Menu Items */}
-              <div className="flex-1 px-4 py-6 overflow-y-auto">
+              <div className="flex-1 px-4 py-6 overflow-hidden">
                 <div className="flex flex-col gap-2">
                   {['Capabilities', 'Pricing', 'Trust'].map((item, i) => (
                     <a
