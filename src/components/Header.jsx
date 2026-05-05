@@ -83,23 +83,21 @@ export default function Header() {
           />
 
           {/* Side Menu */}
-          <div className="fixed top-0 right-0 h-screen w-80 max-w-[85vw] bg-white z-[60] md:hidden animate-slide-in-right shadow-2xl">
-            <div className="flex flex-col h-full bg-white">
+          <div className="fixed top-0 right-0 h-screen w-80 max-w-[85vw] bg-gradient-to-br from-white via-primary-50/30 to-secondary-50/20 z-[60] md:hidden animate-slide-in-right shadow-2xl border-l border-primary-200/30">
+            <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-neutral-100">
-                <span className="text-lg font-semibold text-neutral-900">Menu</span>
-                {/* Close button handled by the main hamburger button which is z-60 */}
-                <div className="w-10 h-10"></div> {/* Spacer for the z-60 button */}
+              <div className="flex items-center justify-between p-6 border-b border-primary-200/50 bg-gradient-to-r from-primary-50 to-secondary-50/50">
+                <span className="text-xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">Menu</span>
               </div>
 
               {/* Menu Items */}
-              <div className="flex-1 px-4 py-6 overflow-hidden">
+              <div className="flex-1 px-4 py-8 overflow-hidden">
                 <div className="flex flex-col gap-2">
                   {['Capabilities', 'Pricing', 'Trust'].map((item, i) => (
                     <a
                       key={i}
                       href={`#${item.toLowerCase()}`}
-                      className="px-4 py-3 text-base text-neutral-700 hover:text-primary-600 hover:bg-primary-50 font-medium transition-all duration-200 rounded-lg touch-target"
+                      className="px-4 py-4 text-base text-neutral-700 hover:text-primary-600 hover:bg-gradient-to-r hover:from-primary-100 hover:to-secondary-100 font-semibold transition-all duration-200 rounded-lg touch-target border border-transparent hover:border-primary-200/50"
                       onClick={handleLinkClick}
                     >
                       {item}
@@ -109,8 +107,8 @@ export default function Header() {
               </div>
 
               {/* CTA Button */}
-              <div className="p-4 border-t border-neutral-100">
-                <button className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold text-base hover:shadow-lg transition-all duration-300 transform active:scale-95 touch-target">
+              <div className="p-6 border-t border-primary-200/50 bg-gradient-to-r from-primary-50/50 to-secondary-50/50">
+                <button className="w-full px-6 py-4 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-bold text-base hover:shadow-xl hover:shadow-primary-500/30 transition-all duration-300 transform hover:scale-105 active:scale-95 touch-target">
                   Get Started
                 </button>
               </div>
