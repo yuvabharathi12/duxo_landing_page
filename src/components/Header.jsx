@@ -35,7 +35,7 @@ export default function Header() {
         {/* Mobile menu button */}
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2.5 sm:p-3 rounded-lg hover:bg-primary-100/50 transition-all duration-200 flex items-center justify-center touch-target"
+          className="md:hidden fixed right-4 sm:right-6 top-3 sm:top-4 z-[100] p-2.5 sm:p-3 rounded-lg hover:bg-primary-100/50 transition-all duration-200 flex items-center justify-center touch-target"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
@@ -71,60 +71,51 @@ export default function Header() {
             Get Started
           </button>
         </div>
+      </nav>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <>
-            {/* Backdrop */}
-            <div
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
-              onClick={() => setIsOpen(false)}
-            />
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+            onClick={() => setIsOpen(false)}
+          />
 
-            {/* Side Menu */}
-            <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 md:hidden animate-slide-in-right">
-              <div className="flex flex-col h-full">
-                {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-neutral-100">
-                  <span className="text-lg font-semibold text-neutral-900">Menu</span>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="p-2 rounded-lg hover:bg-neutral-100 transition-colors"
-                    aria-label="Close menu"
-                  >
-                    <svg className="w-6 h-6 text-neutral-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
+          {/* Side Menu */}
+          <div className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 md:hidden animate-slide-in-right">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b border-neutral-100">
+                <span className="text-lg font-semibold text-neutral-900">Menu</span>
+              </div>
 
-                {/* Menu Items */}
-                <div className="flex-1 px-4 py-6">
-                  <div className="flex flex-col gap-2">
-                    {['Capabilities', 'Pricing', 'Trust'].map((item, i) => (
-                      <a
-                        key={i}
-                        href={`#${item.toLowerCase()}`}
-                        className="px-4 py-3 text-base text-neutral-700 hover:text-primary-600 hover:bg-primary-50 font-medium transition-all duration-200 rounded-lg touch-target"
-                        onClick={handleLinkClick}
-                      >
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <div className="p-4 border-t border-neutral-100">
-                  <button className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold text-base hover:shadow-lg transition-all duration-300 transform active:scale-95 touch-target">
-                    Get Started
-                  </button>
+              {/* Menu Items */}
+              <div className="flex-1 px-4 py-6 overflow-y-auto">
+                <div className="flex flex-col gap-2">
+                  {['Capabilities', 'Pricing', 'Trust'].map((item, i) => (
+                    <a
+                      key={i}
+                      href={`#${item.toLowerCase()}`}
+                      className="px-4 py-3 text-base text-neutral-700 hover:text-primary-600 hover:bg-primary-50 font-medium transition-all duration-200 rounded-lg touch-target"
+                      onClick={handleLinkClick}
+                    >
+                      {item}
+                    </a>
+                  ))}
                 </div>
               </div>
+
+              {/* CTA Button */}
+              <div className="p-4 border-t border-neutral-100">
+                <button className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold text-base hover:shadow-lg transition-all duration-300 transform active:scale-95 touch-target">
+                  Get Started
+                </button>
+              </div>
             </div>
-          </>
-        )}
-      </nav>
+          </div>
+        </>
+      )}
     </header>
   );
 }
